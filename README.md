@@ -25,7 +25,7 @@ CookController<-->Userinterface
 CookController<-->Timer
 CookController-->PowerTube
 CookController-->Display
-CookController-->Buzzer
+UserInterface-->Buzzer
 UserInterface-->Display
 UserInterface-->Light
 UserInterface..>Button
