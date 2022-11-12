@@ -1,35 +1,30 @@
 ﻿using Microwave.Classes.Boundary;
+using Microwave.Classes.Interfaces;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace Microwave.Test.Unit
 {
     [TestFixture]
-    public class ButtonTest
+    public class BuzzerTest
     {
-        private Button uut;
+        private Buzzer uut;
+        private IOutput _output;
 
         [SetUp]
         public void Setup()
         {
-            uut = new Button();
+            _output = Substitute.For<IOutput>();
+            uut = new Buzzer(_output);
         }
 
-        [Test]
-        public void Press_NoSubscribers_NoThrow()
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        public void Buzz_Output_Called(int amount)
         {
-            // We don't need an assert, as an exception would fail the test case
-            uut.Press();
+            uut.Buzz(200, amount);
+            _output.Received(amount).OutputLine(Arg.Is<string>(str => str.Contains("Buzzer turned on for 200 ms")));
         }
-
-        [Test]
-        public void Press_1subscriber_IsNotified()
-        {
-            bool notified = false;
-
-            uut.Pressed += (sender, args) => notified = true;
-            uut.Press();
-            Assert.That(notified, Is.EqualTo(true));
-        }
-
     }
 }
