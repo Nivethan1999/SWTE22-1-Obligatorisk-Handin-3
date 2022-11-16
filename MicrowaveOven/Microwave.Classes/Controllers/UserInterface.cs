@@ -32,7 +32,7 @@ namespace Microwave.Classes.Controllers
             ILight light,
             IBuzzer buzzer,
             ICookController cooker)
-            //IPowerTube powertube)
+            
         {
             powerButton.Pressed += new EventHandler(OnPowerPressed);
             timeButton.Pressed += new EventHandler(OnTimePressed);
@@ -46,7 +46,7 @@ namespace Microwave.Classes.Controllers
             myCooker = cooker;
             myLight = light;
             myDisplay = display;
-            //Mypowertube = powertube;
+            
             
         }
 
