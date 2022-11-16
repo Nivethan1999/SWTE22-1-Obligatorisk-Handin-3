@@ -16,7 +16,7 @@ namespace Microwave.Classes.Controllers
         private ICookController myCooker;
         private ILight myLight;
         private IDisplay myDisplay;
-        private IPowerTube Mypowertube;
+        
 
         private int powerLevel = 50;
         private int time = 1;
@@ -29,7 +29,7 @@ namespace Microwave.Classes.Controllers
             IDisplay display,
             ILight light,
             ICookController cooker)
-            //IPowerTube powertube)
+            
         {
             powerButton.Pressed += new EventHandler(OnPowerPressed);
             timeButton.Pressed += new EventHandler(OnTimePressed);
@@ -41,7 +41,7 @@ namespace Microwave.Classes.Controllers
             myCooker = cooker;
             myLight = light;
             myDisplay = display;
-            //Mypowertube = powertube;
+            
             
         }
 
