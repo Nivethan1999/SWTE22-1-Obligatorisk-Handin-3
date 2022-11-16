@@ -3,7 +3,7 @@
 ClassDiagram of the MicrowaveOven handout
 ```mermaid
 classDiagram
-CookController<-->Userinterface
+CookController<-->UserInterface
 CookController<-->Timer
 CookController-->PowerTube
 CookController-->Display
@@ -21,7 +21,7 @@ Output<--PowerTube
 ClassDiagram with the Buzzer added
 ```mermaid
 classDiagram
-CookController<-->Userinterface
+CookController<-->UserInterface
 CookController<-->Timer
 CookController-->PowerTube
 CookController-->Display
