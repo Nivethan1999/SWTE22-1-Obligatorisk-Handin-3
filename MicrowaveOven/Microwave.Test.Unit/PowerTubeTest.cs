@@ -1,4 +1,5 @@
-﻿using Microwave.Classes.Boundary;
+﻿using System;
+using Microwave.Classes.Boundary;
 using Microwave.Classes.Interfaces;
 using NSubstitute;
 using NSubstitute.Core.Arguments;
@@ -38,6 +39,31 @@ namespace Microwave.Test.Unit
         public void TurnOn_WasOffOutOfRangePower_ThrowsException1000Maximumpower(int power)
         {
             Assert.Throws<System.ArgumentOutOfRangeException>(() => uut.TurnOn(power));
+        }
+
+        [TestCase(1)]
+        [TestCase(50)]
+        [TestCase(100)]
+        [TestCase(199)]
+        [TestCase(200)]
+
+        public void TurnOn_WasOffCorrect_CorrectOutput200Maximumpower(int power)
+        {
+            var maximumpower200 = new PowerTube(output, 200);
+            maximumpower200.TurnOn(power);
+            output.Received().OutputLine(Arg.Is<string>(str => str.Contains($"{power}")));
+        }
+
+        [TestCase(-5)]
+        [TestCase(-1)]
+        [TestCase(0)]
+        [TestCase(201)]
+        [TestCase(250)]
+
+        public void TurnOn_WasOffOutRangePower_ThrowsExeption200Maximumpower(int power)
+        {
+            var maximumpowe200 = new PowerTube(output, 200);
+            Assert.Throws<System.ArgumentOutOfRangeException>(() => maximumpowe200.TurnOn(power));
         }
 
         [TestCase(1)]
