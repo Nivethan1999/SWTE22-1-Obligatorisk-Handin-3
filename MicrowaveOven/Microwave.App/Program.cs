@@ -43,7 +43,7 @@ namespace Microwave.App
 
             startCancelButton.Press();
 
-            cooker.addTimer(60);
+            
 
 
                // The simple sequence should now run
