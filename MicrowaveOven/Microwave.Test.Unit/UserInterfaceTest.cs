@@ -214,6 +214,7 @@ namespace Microwave.Test.Unit
             cooker.Received(1).StartCooking(50, 60);
         }
 
+        //TEST FOR SECONDBUTTON
         [Test]
         public void SecondSetTime_DoorOpened_DisplayCleared()
         {
@@ -226,6 +227,7 @@ namespace Microwave.Test.Unit
             display.Received().Clear();
         }
 
+        //TEST FOR SECONDBUTTON
         [Test]
         public void SecondSetTime_DoorOpened_LightOn()
         {
@@ -238,6 +240,18 @@ namespace Microwave.Test.Unit
             light.Received().TurnOn();
         }
 
+        //TEST FOR SECONDBUTTON
+        [Test] public void SetPower_2TimeSecondButton_TimeIs2()
+        {
+            powerButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            // Now in SetPower
+            secondButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            secondButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+
+
+            display.Received(1).ShowTime(Arg.Is<int>(1), Arg.Is<int>(0));
+            display.Received(1).ShowTime(Arg.Is<int>(1), Arg.Is<int>(1));
+        }
 
 
 
