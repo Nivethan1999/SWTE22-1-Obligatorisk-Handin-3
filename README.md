@@ -13,9 +13,9 @@ UserInterface..>Button
 UserInterface..>Door
 UserInterface<--Button
 UserInterface<--Door
-Light-->Output
-Display-->Output
-PowerTube-->Output
+Output<--Light
+Output<--Display
+Output<--PowerTube
 ```
 
 ClassDiagram with the Buzzer added
@@ -32,10 +32,10 @@ UserInterface..>Button
 UserInterface..>Door
 UserInterface<--Button
 UserInterface<--Door
-Light-->Output
-Display-->Output
-PowerTube-->Output
-Buzzer-->Output
+Output<--Light
+Output<--Display
+Output<--PowerTube
+Output<--Buzzer
 ```
 
 ## Links
