@@ -19,7 +19,7 @@ namespace Microwave.Classes.Controllers
         
 
         private int powerLevel = 50;
-        private int time = 1;
+        private int time = 0;
 
         public UserInterface(
             IButton powerButton,
@@ -28,6 +28,7 @@ namespace Microwave.Classes.Controllers
             IDoor door,
             IDisplay display,
             ILight light,
+            IBuzzer buzzer,
             ICookController cooker)
             
         {
@@ -41,7 +42,7 @@ namespace Microwave.Classes.Controllers
             myCooker = cooker;
             myLight = light;
             myDisplay = display;
-            
+            myBuzzer = buzzer;
             
         }
 
@@ -78,6 +79,10 @@ namespace Microwave.Classes.Controllers
                     time += 1;
                     myDisplay.ShowTime(time, 0);
                     break;
+                case States.COOKING:
+                         myCooker.addTimer(time);
+                         myDisplay.ShowTime(time, 0);
+                         break;
             }
         }
 
@@ -153,7 +158,7 @@ namespace Microwave.Classes.Controllers
                     ResetValues();
                     myDisplay.Clear();
                     myLight.TurnOff();
-                    // Beep 3 times
+                    myBuzzer.Buzz(200,3);
                     myState = States.READY;
                     break;
             }
