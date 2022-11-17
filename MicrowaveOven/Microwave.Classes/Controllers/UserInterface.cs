@@ -20,7 +20,7 @@ namespace Microwave.Classes.Controllers
         
 
         private int powerLevel = 50;
-        private int time = 0;
+        private int time = 1;
 
         public UserInterface(
             IButton powerButton,
