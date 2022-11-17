@@ -39,6 +39,8 @@ namespace Microwave.App
 
             startCancelButton.Press();
 
+            cooker.AddTimer(60);
+
             // The simple sequence should now run
 
             System.Console.WriteLine("When you press enter, the program will stop");
