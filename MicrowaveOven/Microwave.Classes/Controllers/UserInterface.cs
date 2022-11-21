@@ -17,6 +17,7 @@ namespace Microwave.Classes.Controllers
         private ILight myLight;
         private IDisplay myDisplay;
         private IBuzzer myBuzzer;
+        
 
         private int powerLevel = 50;
         private int time = 60;
@@ -31,6 +32,7 @@ namespace Microwave.Classes.Controllers
             ILight light,
             IBuzzer buzzer,
             ICookController cooker)
+            
         {
             powerButton.Pressed += new EventHandler(OnPowerPressed);
             timeButton.Pressed += new EventHandler(OnTimePressed);
