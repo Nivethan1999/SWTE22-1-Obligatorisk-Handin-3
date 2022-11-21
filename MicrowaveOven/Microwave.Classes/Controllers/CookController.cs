@@ -70,7 +70,7 @@ namespace Microwave.Classes.Controllers
             }
         }
 
-        public void AddTimer(int time)
+        public void addTimer(int time)
         {
              myTimer.TimeRemaining += time;
         }
