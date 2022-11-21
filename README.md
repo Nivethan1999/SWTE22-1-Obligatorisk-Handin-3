@@ -90,6 +90,27 @@ sequenceDiagram
     
 ```
 
+SequenceDiagram for secondButton
+```mermaid
+sequenceDiagram
+    User-)secondButton Button: User press second button
+        activate secondButton Button
+    secondButton Button->>UserInterface:  OnTimeSecondPressed()
+    activate UserInterface
+    alt state = SETPOWER
+    UserInterface->>UserInterface: Change state to SETTIME
+    else state = SETTIME
+    UserInterface->>UserInterface: Increment time
+    else state = COOKING
+    UserInterface->>CookController: addTimer()
+    deactivate secondButton Button
+        CookController->>Timer: Set timeRemaining 
+
+    end
+    UserInterface-)Display:  ShowTime()
+    Display-)Ouput: LogLine()
+```
+
 #State machine of the user interface
 ```mermaid
 stateDiagram-v2 
