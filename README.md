@@ -64,17 +64,23 @@ sequenceDiagram
 ```
 
 
-
 Sequence diagram of buzzer feature
+```mermaid
+sequenceDiagram
 
-place sequence diagram here
+participant C as Cook Controller
+participant B as Buzzer
+participant O as Output
 
+C->>C: CookingIsDone()
+C->>B: Buzz()
+B->>O: OutputLine()
 
+```
 
 #State machine of the user interface
 ```mermaid
 stateDiagram-v2 
-%%{init: {'themeVariables': { 'fontSize': '0.8rem'}}}%%
 Ready: Ready
 SetPower: Set Power
 SetTime: Set Time
