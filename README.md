@@ -78,6 +78,18 @@ B->>O: OutputLine()
 
 ```
 
+SequenceDiagram for TimeCooking
+```mermaid
+sequenceDiagram
+    loop While it is cooking
+        UserInterFace->>CookController: addTimer()
+        CookController->>+Timer: setTimer()
+        UserInterFace->>+Display: ShowTimer()
+        Display->>+Output: LogLine()
+    end
+    
+```
+
 #State machine of the user interface
 ```mermaid
 stateDiagram-v2 
