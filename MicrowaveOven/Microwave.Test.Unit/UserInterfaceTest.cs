@@ -421,7 +421,7 @@ namespace Microwave.Test.Unit
              startCancelButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
              timeButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
 
-             cooker.Received(1).AddTimer(60);
+             cooker.Received(1).addTimer(60);
 
 
         }
