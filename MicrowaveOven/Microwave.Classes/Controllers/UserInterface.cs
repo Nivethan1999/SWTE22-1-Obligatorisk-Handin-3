@@ -17,7 +17,7 @@ namespace Microwave.Classes.Controllers
         private ILight myLight;
         private IDisplay myDisplay;
         private IBuzzer myBuzzer;
-        private IPowerTube Mypowertube;
+        
 
         private int powerLevel = 50;
         private int time = 60;
@@ -46,7 +46,7 @@ namespace Microwave.Classes.Controllers
             myCooker = cooker;
             myLight = light;
             myDisplay = display;
-            
+            myBuzzer = buzzer;
             
         }
 
