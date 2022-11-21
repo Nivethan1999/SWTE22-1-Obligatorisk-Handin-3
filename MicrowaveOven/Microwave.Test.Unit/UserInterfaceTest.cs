@@ -427,6 +427,20 @@ namespace Microwave.Test.Unit
         }
 
 
+        [Test]
+        public void CookingSecondTimeButton()
+        {
+             powerButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+             timeButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+             startCancelButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+             secondButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+
+             cooker.Received(1).addTimer(1);
+
+
+        }
+
+
 
      }
 
