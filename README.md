@@ -42,23 +42,12 @@ Buzzer-->Output
 SequenceDIagram with the Powertube power configurable
 ```mermaid
 sequenceDiagram
-    Program->> CookController: new Powertube(output,1000)
-    UserInterface->>CookController: StartCooking()
-    activate CookController
-    CookController->> Timer: Start()
-    CookController ->>PowerTube:  TurnOn(power)
-    deactivate CookController
-    activate PowerTube
-    PowerTube ->>Output: Logline()
-    deactivate PowerTube
-    Timer->> CookController: OnTimerExpired()
-    activate CookController
-    CookController->> PowerTube: TurnOff()
-    activate PowerTube
-    PowerTube->> Output: Logline()
-    deactivate PowerTube
-    CookController->> UserInterface: CookingIsDone()
-    deactivate CookController
+    Program->>CookController: new Powertube(output,1000)
+    User->>PowerButton: Press Power Button
+    PowerButton->>UserInterface: OnPowerPressed()
+    UserInterface->>CookController: GetMaximumPower()
+
+   
 
 
 ```
