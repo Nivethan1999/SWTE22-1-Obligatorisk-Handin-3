@@ -74,5 +74,10 @@ namespace Microwave.Classes.Controllers
         {
              myTimer.TimeRemaining += time;
         }
+
+        public int GetMaximumPower()
+        {
+            return myPowerTube._MaximumPower;
+        }
     }
 }
