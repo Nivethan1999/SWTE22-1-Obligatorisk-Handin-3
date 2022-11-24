@@ -93,5 +93,15 @@ namespace Microwave.Test.Unit
              Assert.That(timer.TimeRemaining,Is.EqualTo(120));
         }
 
+        [TestCase(200)]
+        [TestCase(500)]
+        [TestCase(800)]
+        [TestCase(1000)]
+        public void GetMaximumPowerTest(int maxpower)
+        {
+            uut.GetMaximumPower().Returns(maxpower);
+            Assert.That(uut.GetMaximumPower(),Is.EqualTo(maxpower));
+        }
+
     }
 }
